@@ -1,12 +1,13 @@
 import { useForm } from 'react-hook-form';
-import registerImg from '../../assets/registerImg.jpg';
+import loginImg from '../../assets/loginImg.jpg';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import SocialMedia from '../../components/SocialMedia/SocialMedia';
 
 const Login = () => {
-    const { signInUser } = useContext(AuthContext);
+    const { signInUser,  googleLogin } = useContext(AuthContext);
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm()
 
@@ -28,12 +29,12 @@ const Login = () => {
             <div className="hero-content flex-col md:flex-row">
 
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold text-center mb-6">Please Login Now!</h1>
-                    <img src={registerImg} alt="" className="mt-12" />
+                   
+                    <img src={loginImg} alt="" className="mt-12" />
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                    <form onSubmit={handleSubmit(onSubmit)} className="card-body mt-10">
-
+                    <form onSubmit={handleSubmit(onSubmit)} className="card-body mt-10 p-4">
+                    <h1 className="text-2xl font-bold text-center mb-6">Please Login Now!</h1>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
@@ -58,6 +59,7 @@ const Login = () => {
                             <button className="btn btn-primary">LOGIN</button>
                         </div>
                     </form>
+                    <SocialMedia></SocialMedia>
                     <div className='mx-4 text-center mb-2'>
                         <p className='text-orange-700'>Do not have an account?. Please <Link to="/register"
                             className='text-blue-900 text-md font-semibold'>REGISTER</Link></p>
