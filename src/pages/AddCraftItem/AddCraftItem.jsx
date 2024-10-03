@@ -1,13 +1,50 @@
+import Swal from "sweetalert2";
 
 
 const AddCraftItem = () => {
 
     const handleAddCraft = event => {
         event.preventDefault();
-        console.log('added craft item');
+        const form = event.target;
+
+        const itemName = form.itemName.value;
+        const image = form.image.value;
+        const subcategory = form.subcategory.value;
+        const customization = form.customization.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const processTime = form.processTime.value;
+        const stockStatus = form.stockStatus.value;
+        const userName = form.userName.value;
+        const email = form.email.value;
+        const description = form.description.value;
+
+        const newItem = {itemName, image, subcategory, customization, price, rating, processTime, 
+                        stockStatus, userName, email, description};
+        console.log(newItem);
+
+        fetch('http://localhost:5000/crafts', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newItem)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Craft Item Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+        })
     }
     return (
-        <div className="hero bg-orange-200 min-h-screen rounded-lg">
+        <div className="hero bg-orange-200 min-h-screen rounded-lg mt-6">
             <div className="hero-content flex-col">
                 <div className="text-center md:text-left">
                 <h1 className="text-3xl font-bold text-lime-700 mt-4">Add An Art & Craft Item!</h1>
@@ -85,7 +122,7 @@ const AddCraftItem = () => {
                                 <label className="label">
                                     <span className="label-text font-semibold">Stock Status</span>
                                 </label>
-                                <input type="text" name="stock" placeholder="Stock Status" 
+                                <input type="text" name="stockStatus" placeholder="Stock Status" 
                                 className="input input-bordered  md:w-full"  />
 
                             </div>
