@@ -1,12 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import registerImg from '../../assets/registerImg.jpg';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
    
 
     const { register, handleSubmit,  formState: { errors } } = useForm()
@@ -17,6 +19,7 @@ const Register = () => {
             .then(result => {
                 console.log(result);
                 toast.success('User Created Successfully');
+                navigate(location?.state ? location.state : "/");
             })
             .catch(error => {
                 console.error(error);

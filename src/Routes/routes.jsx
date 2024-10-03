@@ -6,6 +6,8 @@ import AddCraftItem from "../pages/AddCraftItem/AddCraftItem";
 import MyCraftList from "../pages/MyCraftList/MyCraftList";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
+import ItemDetails from "../pages/ItemDetails/ItemDetails";
 
   const router = createBrowserRouter([
     {
@@ -18,12 +20,17 @@ import Register from "../pages/Register/Register";
             loader: () => fetch('http://localhost:5000/crafts')
         },
         {
+          path: '/itemDetails/:id',
+          element: <ItemDetails></ItemDetails>,
+         
+        },
+        {
           path: '/allCraftItems',
           element: <AllCraftItems></AllCraftItems>
         },
         {
           path: 'addCraftItem',
-          element: <AddCraftItem></AddCraftItem>
+          element: <PrivateRoute><AddCraftItem></AddCraftItem></PrivateRoute>
         },
         {
           path: 'myCraftList',
@@ -37,6 +44,7 @@ import Register from "../pages/Register/Register";
             path: '/register',
             element: <Register></Register>
         }
+       
       ]
     },
   ]);

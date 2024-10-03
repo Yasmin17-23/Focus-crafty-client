@@ -2,12 +2,14 @@ import { useForm } from 'react-hook-form';
 import loginImg from '../../assets/loginImg.jpg';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import SocialMedia from '../../components/SocialMedia/SocialMedia';
 
 const Login = () => {
-    const { signInUser,  googleLogin } = useContext(AuthContext);
+    const { signInUser } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm()
 
@@ -17,6 +19,7 @@ const Login = () => {
             .then(result => {
                 console.log(result);
                 toast.success('User Logged In Successfully');
+                navigate(location?.state ? location.state : "/")
             })
             .catch(error => {
                 console.error(error);
