@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
@@ -17,9 +18,22 @@ const Register = () => {
         const { email, password } = data;
         createUser(email, password)
             .then(result => {
-                console.log(result);
+                console.log(result.user);
                 toast.success('User Created Successfully');
                 navigate(location?.state ? location.state : "/");
+
+                const user = { email };
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                })
             })
             .catch(error => {
                 console.error(error);

@@ -151,7 +151,7 @@ const AddCraftItem = () => {
                                 <label className="label">
                                     <span className="label-text font-semibold">Short Description</span>
                                 </label>
-                                <input type="text" name="description" placeholder="Short Description" 
+                                <input type="text" name="description"  placeholder="Short Description" 
                                 className="input input-bordered md:w-full"  />
                             </div>
                         </div>

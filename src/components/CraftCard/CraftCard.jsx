@@ -15,7 +15,8 @@ const CraftCard = ({ craft }) => {
             <div className="card-body ">
                 <h2 className="card-title mx-auto">{itemName}</h2>
                 <p className="font-semibold"><span className="text-lg font-semibold text-orange-600">StockStatus: </span>{stockStatus}</p>
-                <p className="font-semibold"><span className="text-lg font-semibold text-orange-600">Price: </span>{price}</p>
+                <p className="font-semibold"><span className="text-lg font-semibold 
+                text-orange-600">Price: </span>{price}</p>
                 <div className="card-actions justify-center">
                     <Link to={`/itemDetails/${_id}`}>
                         <button className="btn bg-orange-700 text-white 
