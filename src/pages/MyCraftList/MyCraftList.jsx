@@ -47,7 +47,9 @@ const MyCraftList = () => {
                                 text: "Your Craft Item has been deleted.",
                                 icon: "success"
                             });
-
+                           
+                            const remainingCraft = myCraft.filter(crf => crf._id !== _id);
+                            setMyCraft(remainingCraft);
                         }
                     })
             }

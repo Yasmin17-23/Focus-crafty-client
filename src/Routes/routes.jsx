@@ -41,7 +41,8 @@ import UpdateCraftItem from "../pages/UpdateCraftItem/UpdateCraftItem";
         },
         {
           path: '/updateCraft/:id',
-          element: <PrivateRoute><UpdateCraftItem></UpdateCraftItem></PrivateRoute>
+          element: <PrivateRoute><UpdateCraftItem></UpdateCraftItem></PrivateRoute>,
+          loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
         },
         {
             path: '/login',
