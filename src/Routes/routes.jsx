@@ -9,11 +9,17 @@ import Register from "../pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import ItemDetails from "../pages/ItemDetails/ItemDetails";
 import UpdateCraftItem from "../pages/UpdateCraftItem/UpdateCraftItem";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import AddArtCrafts from "../pages/AddArtCrafts/AddArtCrafts";
+import AllCategory from "../pages/AllCategory/AllCategory";
+
+
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
             path: '/',
@@ -40,6 +46,15 @@ import UpdateCraftItem from "../pages/UpdateCraftItem/UpdateCraftItem";
           element: <PrivateRoute><MyCraftList></MyCraftList></PrivateRoute>,
         },
         {
+          path: 'addArtCrafts',
+          element: <AddArtCrafts></AddArtCrafts>
+        },
+        {
+          path: '/category/:subcategory',
+          element: <AllCategory></AllCategory>,
+          loader: ({params}) => fetch(`http://localhost:5000/category/${params.subcategory}`)
+        },
+        {
           path: '/updateCraft/:id',
           element: <PrivateRoute><UpdateCraftItem></UpdateCraftItem></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
@@ -51,7 +66,8 @@ import UpdateCraftItem from "../pages/UpdateCraftItem/UpdateCraftItem";
         {
             path: '/register',
             element: <Register></Register>
-        }
+        },
+        
        
       ]
     },

@@ -15,8 +15,10 @@ const Navbar = () => {
         <li  className="mb-2 md:mr-2"><NavLink to="/allCraftItems">All Craft Items</NavLink></li>
         <li  className="mb-2 md:mr-2"><NavLink to="addCraftItem">Add Craft Item</NavLink></li>
         <li  className="mb-2 md:mr-2"><NavLink to="myCraftList">My Craft List</NavLink></li>
+        <li  className="mb-2 md:mr-2"><NavLink to="addArtCrafts">Add Art & Craft</NavLink></li>
         <li  className="mb-2 md:mr-2"><NavLink to="/login">Login</NavLink></li>
         <li  className="mb-2 md:mr-2"><NavLink to="register">Register</NavLink></li>
+        
 
     </>
     return (

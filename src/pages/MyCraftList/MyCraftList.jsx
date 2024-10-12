@@ -4,12 +4,28 @@ import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { FaAngleDown } from "react-icons/fa6";
 
 
 const MyCraftList = () => {
     const { user } = useContext(AuthContext);
     const [myCraft, setMyCraft] = useState([]);
     const { _id } = myCraft;
+    const [displayCraft, setDisplayCraft] = useState([]);
+
+    const handleFilterCraft = filter => {
+        if(filter === 'All'){
+            setDisplayCraft(myCraft);
+        }
+        else if(filter === 'Yes'){
+            const yesCustomization = myCraft.filter(craft => craft.customization === 'Yes');
+            setDisplayCraft(yesCustomization);
+        }
+        else if(filter === 'No'){
+            const noCustomization = myCraft.filter(craft => craft.customization === 'No');
+            setDisplayCraft(noCustomization);
+        }
+    }
 
     useEffect(() => {
         fetch(`http://localhost:5000/users/${user?.email}`)
@@ -17,6 +33,7 @@ const MyCraftList = () => {
             .then(data => {
                 console.log(data);
                 setMyCraft(data);
+                setDisplayCraft(data);
             })
     }, [user]);
 
@@ -47,7 +64,7 @@ const MyCraftList = () => {
                                 text: "Your Craft Item has been deleted.",
                                 icon: "success"
                             });
-                           
+
                             const remainingCraft = myCraft.filter(crf => crf._id !== _id);
                             setMyCraft(remainingCraft);
                         }
@@ -60,9 +77,20 @@ const MyCraftList = () => {
 
         <div className="text-center my-10 space-y-5">
             <h2 className="text-3xl font-bold mt-4 mb-6 text-orange-800">My craft List: {myCraft.length}</h2>
+            <div className="flex justify-center items-center md:justify-end md:items-end">
+            <div className="dropdown">
+                <div tabIndex={0} role="button" className="btn m-1 mb-5">Customization <FaAngleDown /></div>
+                <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    <li onClick={() => handleFilterCraft('All')}><a>All</a></li>
+                    <li onClick={() => handleFilterCraft('Yes')}><a>Yes</a></li>
+                    <li onClick={() => handleFilterCraft('No')}><a>No</a></li>
+                </ul>
+            </div>
+            </div>
+
             <div className="grid md:grid-cols-2 gap-6 ">
                 {
-                    myCraft.map(item =>
+                    displayCraft.map(item =>
 
                         <div className="card bg-orange-200 pt-5 w-96 shadow-xl" key={item._id}>
                             <figure>

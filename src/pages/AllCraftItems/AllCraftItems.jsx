@@ -59,7 +59,7 @@ const AllCraftItems = () => {
                                     </td>
                                     <td>{art.stockStatus}</td>
                                     <th>
-                                        <Link >
+                                        <Link to={`/itemDetails/${art._id}`}>
                                             <button className="btn bg-orange-700 text-white 
                                            hover:bg-orange-900">View Details</button>
                                         </Link>

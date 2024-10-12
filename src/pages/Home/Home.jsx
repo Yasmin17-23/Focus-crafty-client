@@ -2,6 +2,8 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "../../components/Banner/Banner";
 import { useState } from "react";
 import CraftCard from "../../components/CraftCard/CraftCard";
+import ArtCraftCategory from "../../components/ArtCraftCategory/ArtCraftCategory";
+
 
 
 const Home = () => {
@@ -22,6 +24,7 @@ const Home = () => {
                     }
                 </div>
             </div>
+            <ArtCraftCategory></ArtCraftCategory>
         </div>
     );
 };
