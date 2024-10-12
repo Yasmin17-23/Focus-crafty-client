@@ -1,22 +1,34 @@
-//import { useEffect, useState } from "react";
 
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Typewriter } from 'react-simple-typewriter'
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const AllCraftItems = () => {
     const loadedAllCrafts = useLoaderData();
     
-    //const { _id } = loadedAllCrafts;
- 
-    //const [allCraft, setAllCraft] = useState(loadedAllCrafts);
+    
     return (
         <div className="my-6 text-center">
             <h2 className="text-3xl font-bold">Here All <span className="text-orange-800">Art & Craft
             </span> Items: {loadedAllCrafts.length}</h2>
+            <p className='text-xl py-8'>All Subcategory : <span style={{ color: 'orange', fontWeight: 'bold' }}>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={['Landscape Painting', 'Portrait Drawing', 'Watercolour Painting', 'Oil Painting', 
+                'Charcoal Sketching', 'Cartoon Drawing']}
+            loop={5}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            
+          />
+        </span></p>
 
             <div className="overflow-x-auto">
                 <table className="table">
-                    {/* head */}
+                    {/* head */} 
                     <thead>
                         <tr>
                             <th>

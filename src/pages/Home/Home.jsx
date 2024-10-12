@@ -3,6 +3,7 @@ import Banner from "../../components/Banner/Banner";
 import { useState } from "react";
 import CraftCard from "../../components/CraftCard/CraftCard";
 import ArtCraftCategory from "../../components/ArtCraftCategory/ArtCraftCategory";
+import FamousArtist from "../../components/FamousArtist/FamousArtist";
 
 
 
@@ -25,6 +26,7 @@ const Home = () => {
                 </div>
             </div>
             <ArtCraftCategory></ArtCraftCategory>
+            <FamousArtist></FamousArtist>
         </div>
     );
 };

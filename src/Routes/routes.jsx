@@ -12,6 +12,7 @@ import UpdateCraftItem from "../pages/UpdateCraftItem/UpdateCraftItem";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import AddArtCrafts from "../pages/AddArtCrafts/AddArtCrafts";
 import AllCategory from "../pages/AllCategory/AllCategory";
+import CategoryDetails from "../pages/CategoryDetails/CategoryDetails";
 
 
 
@@ -50,6 +51,11 @@ import AllCategory from "../pages/AllCategory/AllCategory";
           element: <AddArtCrafts></AddArtCrafts>
         },
         {
+          path: '/categoryDetails/:id',
+          element: <CategoryDetails></CategoryDetails>,
+          loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+        },
+        {
           path: '/category/:subcategory',
           element: <AllCategory></AllCategory>,
           loader: ({params}) => fetch(`http://localhost:5000/category/${params.subcategory}`)
@@ -67,6 +73,7 @@ import AllCategory from "../pages/AllCategory/AllCategory";
             path: '/register',
             element: <Register></Register>
         },
+      
         
        
       ]

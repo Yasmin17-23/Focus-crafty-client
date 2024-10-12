@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 
@@ -35,14 +35,20 @@ const AllCategory = () => {
                             <div className="card-body ">
                                 <h2 className="card-title mx-auto">{item.itemName}</h2>
                                 <p className="font-semibold text-orange-600">{item.subcategory}</p>
-                               <div className="flex justify-between items-start">
-                               <p className="font-semibold"><span className="text-lg font-semibold 
+                                <div className="flex justify-between items-start">
+                                    <p className="font-semibold"><span className="text-lg font-semibold 
                 text-orange-600">Price: </span>{item.price}</p>
-                
-                                <p className="font-semibold"><span className="text-lg font-semibold 
+
+                                    <p className="font-semibold"><span className="text-lg font-semibold 
                 text-orange-600">Rating: </span>{item.rating}</p>
 
-                               </div>
+                                </div>
+                                <div className="card-actions justify-center mt-4">
+                                    <Link to={`/categoryDetails/${item._id}`}>
+                                        <button className="btn bg-orange-700 text-white 
+                         hover:bg-orange-900">View Details</button>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     )
