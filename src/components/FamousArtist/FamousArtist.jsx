@@ -20,16 +20,16 @@ const FamousArtist = () => {
                     <img src={artistImg2} alt="" 
                     className='w-16 h-16 rounded-full mx-auto mt-4'/>
                     <div className="card-body">
-                        <h2 className="card-title">Lithy Rozario</h2>
-                        <p>Email: lithy@gmail.com</p>  
+                        <h2 className="card-title">Denial Auth</h2>
+                        <p>Email: denial@gmail.com</p>  
                     </div>
                 </div>
                 <div className="card bg-slate-500  shadow-xl">
                     <img src={artistImg3} alt="" 
                     className='w-16 h-16 rounded-full mx-auto mt-4'/>
                     <div className="card-body">
-                        <h2 className="card-title">Lithy Rozario</h2>
-                        <p>Email: lithy@gmail.com</p>  
+                        <h2 className="card-title">Avishekh Datta</h2>
+                        <p>Email: avishekh@gmail.com</p>  
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@ const Banner = () => {
           <img
             src={bannerImg1}
             className="w-full h-[400px] rounded-xl" />
-            <div className='absolute lg:top-28 lg:left-72 flex flex-col justify-center items-center'>
+            <div className='absolute top-20 left-20 lg:top-28 lg:left-72 flex flex-col justify-center items-center'>
                <h1 className='text-white md:text-3xl font-bold mb-3'>Forest Based Landscape Painting</h1>
                <button className='btn btn-warning text-white'>Explore Now</button>
             </div>
@@ -24,7 +24,7 @@ const Banner = () => {
           <img
             src={bannerImg2}
             className="w-full h-[400px] rounded-xl" />
-             <div className='absolute lg:top-28 lg:left-80 flex flex-col justify-center items-center'>
+             <div className='absolute top-20 left-20 lg:top-28 lg:left-80 flex flex-col justify-center items-center'>
                <h1 className='text-white md:text-3xl font-bold mb-3'>Mountain View Canvas Painting</h1>
                <button className='btn btn-warning text-white'>Explore Now</button>
             </div>
@@ -37,7 +37,7 @@ const Banner = () => {
           <img
             src={bannerImg3}
             className="w-full h-[400px] rounded-xl" />
-             <div className='absolute lg:top-28 lg:left-72 flex flex-col justify-center items-center'>
+             <div className='absolute top-20 left-20 lg:top-28 lg:left-72 flex flex-col justify-center items-center'>
                <h1 className='text-white md:text-3xl font-bold mb-3'>Beautiful Floral Watercolor Art</h1>
                <button className='btn btn-warning text-white'>Explore Now</button>
             </div>
@@ -50,7 +50,7 @@ const Banner = () => {
           <img
             src={bannerImg4}
             className="w-full h-[400px] rounded-xl"/>
-             <div className='absolute lg:top-28 lg:left-72 flex flex-col justify-center items-center'>
+             <div className='absolute top-20 left-20 lg:top-28 lg:left-72 flex flex-col justify-center items-center'>
                <h1 className='text-white md:text-3xl font-bold mb-3'>Superhero Cartoon Design Drawing</h1>
                <button className='btn btn-warning text-white'>Explore Now</button>
             </div>

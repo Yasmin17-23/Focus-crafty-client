@@ -51,15 +51,16 @@ import CategoryDetails from "../pages/CategoryDetails/CategoryDetails";
           element: <AddArtCrafts></AddArtCrafts>
         },
         {
-          path: '/categoryDetails/:id',
-          element: <CategoryDetails></CategoryDetails>,
-          loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
-        },
-        {
           path: '/category/:subcategory',
           element: <AllCategory></AllCategory>,
           loader: ({params}) => fetch(`http://localhost:5000/category/${params.subcategory}`)
         },
+        {
+          path: '/categoryDetails/:id',
+          element: <CategoryDetails></CategoryDetails>,
+          loader: ({params}) => fetch(`http://localhost:5000/category/${params.id}`)
+        },
+       
         {
           path: '/updateCraft/:id',
           element: <PrivateRoute><UpdateCraftItem></UpdateCraftItem></PrivateRoute>,

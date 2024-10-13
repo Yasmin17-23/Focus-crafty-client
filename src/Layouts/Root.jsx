@@ -6,11 +6,13 @@ import Footer from "../components/Shared/Footer/Footer";
 const Root = () => {
     return (
         <div>
-            <div className="max-w-6xl mx-auto md:py-6">
+            <div className="md:max-w-6xl mx-8 md:mx-auto pl-8 md:py-6">
                 <Header></Header>
                 <Outlet></Outlet>
             </div>
+           <div className="pl-16 md:pl-0">
             <Footer></Footer>
+           </div>
         </div>
     );
 };

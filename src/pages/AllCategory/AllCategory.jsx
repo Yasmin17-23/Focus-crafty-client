@@ -22,7 +22,7 @@ const AllCategory = () => {
     return (
         <div className="text-center my-10">
             <h2 className="text-3xl font-bold text-orange-700 mb-6">All SubCategory</h2>
-            <div className="grid grid-cols-1 md:grid-cold-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cold-2 lg:grid-cols-3 gap-5 ml-8 md:ml-0">
                 {
                     allCategory.map(item =>
                         <div className="card bg-rose-900 card-compact text-white" key={item._id}>
